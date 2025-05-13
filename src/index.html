@@ -3,18 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>League of Legends Champions</title>
+    <title>LoL Champions Stats</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header>
-        <h1>League of Legends Champions</h1>
-        <button id="theme-toggle">Dark/Light Mode</button>
+        <h1>LoL Champions Stats</h1>
+        <button id="theme-toggle">🌓</button>
     </header>
+    <nav>
+        <input type="text" id="search" placeholder="Zoek champions...">
+        <select id="sort-select">
+            <option value="">-- Sorteer op --</option>
+            <option value="hp">HP</option>
+            <option value="movespeed">Movespeed</option>
+            <option value="armor">Armor</option>
+            <option value="attackspeed">Attack Speed</option>
+            <option value="attackdamage">Attack Damage</option>
+            <option value="spellblock">Spell Block</option>
+            <option value="magic">Magic</option>
+        </select>
+        <button id="show-favorites">⭐ Favorieten</button>
+    </nav>
     <main>
-        <input type="text" id="search" placeholder="Search champions...">
         <div id="champions-container"></div>
     </main>
+    <div id="champion-popup" class="hidden">
+        <button id="close-popup">✖️</button>
+        <div id="popup-content"></div>
+    </div>
     <script type="module" src="./scripts/app.js"></script>
 </body>
 </html>

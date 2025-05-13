@@ -1,34 +1,97 @@
+
 body {
     font-family: Arial, sans-serif;
-    padding: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 20px;
+    background: #f8f8f8;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
 
 .dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background: #181818;
+    color: #e0e0e0;
 }
 
-header {
+.dark-mode .champion-card {
+    background: #2c2c2c;
+}
+
+header, nav {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+button, select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #e0e0e0;
+    color: #000;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode button,
+.dark-mode select {
+    background: #000;
+    color: #fff;
 }
 
 #champions-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 15px;
 }
 
 .champion-card {
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
-.champion-card img {
-    width: 100%;
-    border-radius: 4px;
+.champion-card:hover {
+    transform: scale(1.05);
+}
+
+.favorite {
+    background-color: gold !important;
+    color: #222 !important;
+}
+
+.dark-mode .favorite {
+    background-color: goldenrod !important;
+    color: #111 !important;
+}
+
+.stats {
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: left;
+}
+
+#champion-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    z-index: 1000;
+}
+
+.dark-mode #champion-popup {
+    background: #111;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
 }
