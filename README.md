@@ -40,6 +40,10 @@ Een geavanceerde webapplicatie om League of Legends champions te bekijken, sorte
 3. Navigeer naar `http://localhost:5501`
 4. Begin met zoeken, sorteren en ontdekken!
 
+## 📸 Voorbeeld
+
+![voorbeeld](https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg)
+
 ---
 
 
