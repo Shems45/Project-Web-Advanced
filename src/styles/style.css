@@ -95,3 +95,16 @@ button, select {
 .hidden {
     display: none;
 }
+
+
+/* Fade-in animatie voor champion cards via IntersectionObserver */
+.champion-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.champion-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -15,15 +15,31 @@ export async function initApp() {
 
 function setupThemeToggle() {
     document.getElementById('theme-toggle').addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
+        const newMode = !document.body.classList.contains('dark-mode');
+        document.body.classList.toggle('dark-mode', newMode);
+        localStorage.setItem('darkMode', newMode);
     });
 }
 
 async function fetchChampions() {
-    const res = await fetch('https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json');
-    const data = await res.json();
-    return Object.values(data.data);
+    const cacheKey = 'championData';
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+        return JSON.parse(cached);
+    }
+
+    try {
+        const res = await fetch('https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json');
+        const data = await res.json();
+        const champions = Object.values(data.data);
+        localStorage.setItem(cacheKey, JSON.stringify(champions));
+        return champions;
+    } catch (error) {
+        alert('Kon data niet ophalen. Controleer je internetverbinding.');
+        return [];
+    }
 }
+    
 
 function setupSearch() {
     document.getElementById('search').addEventListener('input', () => {
@@ -58,7 +74,11 @@ function renderFilteredChampions() {
     }
 
     if (sortKey) {
-        champs.sort((a, b) => (b.stats[sortKey] ?? 0) - (a.stats[sortKey] ?? 0));
+        champs.sort((a, b) => {
+        const aVal = sortKey === 'magic' ? a.info.magic : a.stats[sortKey];
+        const bVal = sortKey === 'magic' ? b.info.magic : b.stats[sortKey];
+        return (bVal ?? 0) - (aVal ?? 0);
+    });
     }
 
     renderChampions(champs);
@@ -66,9 +86,9 @@ function renderFilteredChampions() {
 
 function renderChampions(champions) {
     const container = document.getElementById('champions-container');
-    container.innerHTML = champions.map(ch => `
+    container.innerHTML = champions.length ? champions.map(ch => `
         <div class="champion-card ${favorites.includes(ch.id) ? 'favorite' : ''}" data-id="${ch.id}">
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${ch.image.full}" alt="${ch.name}" width="100%">
+            <img loading="lazy" src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${ch.image.full}" alt="${ch.name}" width="100%">
             <strong>${ch.name}</strong>
             <div class="stats">
                 ❤️ HP: ${ch.stats.hp}<br>
@@ -79,9 +99,19 @@ function renderChampions(champions) {
                 🔮 Spell Block: ${ch.stats.spellblock}<br>
                 ✨ Magic: ${ch.info.magic}
             </div>
-        </div>`).join('');
+        </div>`).join('') : '<p>Geen champions gevonden.</p>';
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    });
 
     container.querySelectorAll('.champion-card').forEach(card => {
+        observer.observe(card);
         card.addEventListener('click', () => {
             const id = card.dataset.id;
             if (favorites.includes(id)) {

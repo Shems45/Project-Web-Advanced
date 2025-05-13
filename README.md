@@ -1,38 +1,45 @@
-# LoL Champions Stats App (v2)
+# LoL Champions Stats App (v2.1)
 
-Deze webapplicatie toont uitgebreide statistieken van League of Legends champions via de officiële Riot API. In deze tweede versie zijn er extra features toegevoegd zoals sorteren, favorieten en een popup met detailinformatie.
+Een geavanceerde webapplicatie om League of Legends champions te bekijken, sorteren en beheren op basis van hun statistieken. Deze versie bevat prestatieverbeteringen, lokale caching en animaties.
 
-## 🚀 Nieuwe Features (v2)
+## 🔄 Wat is nieuw in versie 2.1?
 
-- 🔍 Zoekfunctie om champions snel te filteren
-- ↕️ Sorteer op stats: HP, movespeed, armor, attack damage, etc.
-- ⭐ Voeg favorieten toe (lokaal opgeslagen in je browser)
-- 🌓 Dark/Light modus toggle
-- 🖼️ Detailpopup met splash art en korte beschrijving
-- 💾 Slaat favorieten op in `localStorage`
-- 📦 Gebruik van modules (`utils.js` en `app.js` gescheiden)
+- 💾 **Caching van champion-data in localStorage** om API-calls te verminderen
+- 🌙 **Dark mode voorkeur wordt opgeslagen** in localStorage
+- 🧠 **Slimmere sortering** (onderscheid tussen `stats` en `info` velden)
+- 🖼️ **Lazy loading voor afbeeldingen** om performance te verbeteren
+- ✨ **Fade-in animatie voor champion-kaarten** via `IntersectionObserver`
+- ⚠️ **Foutafhandeling** bij netwerkproblemen met duidelijke melding
+- 🧹 Kleine optimalisaties en bugfixes
 
 ## 📁 Bestanden
 
 - `index.html` – HTML structuur
-- `style.css` – Styling + dark mode + layout
-- `app.js` – Initialisatie en DOM-koppeling
-- `utils.js` – Alle logica: data ophalen, sorteren, filteren, favorieten, popup
-- `settings.json` – Live server configuratie (poort 5501)
+- `style.css` – Styling, dark mode, animaties
+- `app.js` – Init-logica
+- `utils.js` – Fetching, filtering, sorteren, popup en events
+- `settings.json` – Live server poortinstelling (5501)
 
-## 🔗 Gebruikte API
+## 🔧 Functionaliteiten
+
+- 🔍 Zoek op naam
+- ↕️ Sorteer op HP, movespeed, armor, etc.
+- ⭐ Voeg champions toe als favoriet (opgeslagen in localStorage)
+- 🌓 Donkere modus toggle met herinnering van voorkeur
+- 📊 Bekijk stats + splash-art popup met beschrijving
+- 🖼️ Lazy loading en fade-in van kaarten voor betere UX
+
+## 🔗 API Gebruikt
 
 - [Riot Games Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon)
 
-## ✅ Gebruik
+## 🚀 Starten
 
-1. Clone deze repository
-2. Start een lokale server (bijv. met Live Server in VS Code)
-3. Open `http://localhost:5501` in je browser
-4. Zoek, sorteer, klik en ontdek!
-
-## 📸 Voorbeeld
-
-![voorbeeld](https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg)
+1. Clone de repo
+2. Start met Live Server in VS Code
+3. Navigeer naar `http://localhost:5501`
+4. Begin met zoeken, sorteren en ontdekken!
 
 ---
+
+
