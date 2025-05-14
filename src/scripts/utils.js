@@ -9,6 +9,7 @@ export async function initApp() {
     setupSearch();
     setupSort();
     setupFavoritesToggle();
+    setupRoleFilter();
     setupPopup();
     renderChampions(allChampions);
 }
@@ -60,13 +61,24 @@ function setupFavoritesToggle() {
     });
 }
 
+function setupRoleFilter() {
+    document.getElementById('role-filter').addEventListener('change', () => {
+        renderFilteredChampions();
+    });
+}
+
 function renderFilteredChampions() {
     const query = document.getElementById('search').value.toLowerCase();
     const sortKey = document.getElementById('sort-select').value;
     let champs = [...allChampions];
+    const selectedRole = document.getElementById('role-filter').value;
 
     if (showingFavorites) {
         champs = champs.filter(ch => favorites.includes(ch.id));
+    }
+
+    if (selectedRole) {
+        champs = champs.filter(ch => ch.tags.includes(selectedRole));
     }
 
     if (query) {
@@ -142,7 +154,40 @@ function showPopup(champ) {
         <h2>${champ.name}</h2>
         <p>${champ.blurb}</p>
         <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg" style="width:100%;border-radius:10px;">
+        <canvas id="stats-chart" width="400" height="200"></canvas>
     `;
     document.getElementById('popup-content').innerHTML = content;
     document.getElementById('champion-popup').classList.remove('hidden');
+
+    const ctx = document.getElementById('stats-chart').getContext('2d');
+    if (window.statsChart) window.statsChart.destroy();
+
+    window.statsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['HP', 'Armor', 'AD', 'AS', 'Spell Block', 'Magic'],
+            datasets: [{
+                label: champ.name + ' Stats',
+                data: [
+                    champ.stats.hp / 10,
+                    champ.stats.armor,
+                    champ.stats.attackdamage,
+                    champ.stats.attackspeed,
+                    champ.stats.spellblock,
+                    champ.info.magic
+                ],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }

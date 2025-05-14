@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoL Champions Stats</title>
@@ -22,6 +23,15 @@
             <option value="attackdamage">Attack Damage</option>
             <option value="spellblock">Spell Block</option>
             <option value="magic">Magic</option>
+        </select>
+        <select id="role-filter">
+            <option value="">-- Filter op rol --</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Tank">Tank</option>
+            <option value="Mage">Mage</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Marksman">Marksman</option>
+            <option value="Support">Support</option>
         </select>
         <button id="show-favorites">⭐ Favorieten</button>
     </nav>
