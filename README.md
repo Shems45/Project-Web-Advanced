@@ -42,6 +42,10 @@ Een uitgebreide webapplicatie om League of Legends champions te doorzoeken, filt
 4. Ga naar `http://localhost:5501`
 5. Zoek, sorteer, filter, klik en bekijk stats!
 
+## 📸 Voorbeeld
+
+![voorbeeld](https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg)
+
 ---
 
 Gemaakt voor leerdoeleinden – versie 2.2
