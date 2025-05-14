@@ -6,16 +6,13 @@ body {
     color: #333;
     transition: background 0.3s, color 0.3s;
 }
-
 .dark-mode {
     background: #181818;
     color: #e0e0e0;
 }
-
 .dark-mode .champion-card {
     background: #2c2c2c;
 }
-
 header, nav {
     display: flex;
     flex-wrap: wrap;
@@ -23,56 +20,41 @@ header, nav {
     align-items: center;
     margin-bottom: 10px;
 }
-
 button, select {
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
     background: #e0e0e0;
     color: #000;
-    transition: background 0.3s, color 0.3s;
 }
-
-.dark-mode button,
-.dark-mode select {
-    background: #000;
-    color: #fff;
-}
-
 #champions-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 15px;
 }
-
 .champion-card {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
-.champion-card:hover {
-    transform: scale(1.05);
+.champion-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-
 .favorite {
     background-color: gold !important;
     color: #222 !important;
 }
-
-.dark-mode .favorite {
-    background-color: goldenrod !important;
-    color: #111 !important;
-}
-
 .stats {
     font-size: 0.9em;
     margin-top: 5px;
     text-align: left;
 }
-
 #champion-popup {
     position: fixed;
     top: 50%;
@@ -86,12 +68,39 @@ button, select {
     width: 90%;
     z-index: 1000;
 }
+.hidden { display: none; }
 
-.dark-mode #champion-popup {
-    background: #111;
-    color: #fff;
+@media (max-width: 600px) {
+    nav, header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .champion-card {
+        font-size: 0.85em;
+    }
 }
 
-.hidden {
-    display: none;
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+.tooltiptext {
+  visibility: hidden;
+  background-color: #222;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* boven tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

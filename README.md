@@ -1,51 +1,59 @@
-# LoL Champions Stats App (v2.2)
+# LoL Champions Stats App (v3.0)
 
-Een uitgebreide webapplicatie om League of Legends champions te doorzoeken, filteren, vergelijken en visualiseren met moderne browserfeatures.
-
-## 🆕 Wat is nieuw in versie 2.2?
-
-- 📊 **Toegevoegd: Chart.js statistiekenbalk** in popup voor visuele vergelijking van HP, armor, AD, AS, spell block & magic
-- 🧪 **Nieuwe filter op champion role**: Fighter, Tank, Mage, etc.
-- ✅ Gecombineerde filters: zoeken + sorteren + rollen tegelijk
-- 💡 Slimme herstructurering van `utils.js` voor overzichtelijke logica
-- 🐞 Diverse bugfixes & code cleanup
-
-## 📁 Bestanden
-
-- `index.html` – Structuur van de pagina + Chart.js import
-- `style.css` – Layout, kleuren, dark mode
-- `app.js` – Startpunt van de app
-- `utils.js` – Alle functionaliteit: ophalen, sorteren, filteren, charts
-- `settings.json` – Poortinstelling voor Live Server (5501)
-
-## 🔧 Functionaliteiten
-
-- 🔍 Zoekfunctie op naam
-- ↕️ Sorteer op HP, movespeed, armor, attack damage, enz.
-- ⭐ Markeer favorieten (opgeslagen via localStorage)
-- 🌓 Dark/Light mode toggle + voorkeur opslaan
-- 🧙 Filter op champion rol (Fighter, Mage, Support, ...)
-- 🖼️ Lazy loading + fade-in animaties
-- 📊 Statistiekenvisualisatie met Chart.js in popup
-- ⚠️ Foutmelding als de API niet beschikbaar is
-
-## 🔗 Gebruikte API
-
-- [Riot Games Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon)
-- [Chart.js](https://www.chartjs.org/) voor grafieken
-
-## 🚀 Starten
-
-1. Clone deze repository
-2. Open de projectmap in VS Code
-3. Start Live Server
-4. Ga naar `http://localhost:5501`
-5. Zoek, sorteer, filter, klik en bekijk stats!
-
-## 📸 Voorbeeld
-
-![voorbeeld](https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg)
+Een interactieve webapplicatie voor het verkennen van League of Legends champions met filtering, visualisatie en gebruikerservaring als prioriteit. Deze versie brengt nieuwe UX-features, prestatieverbeteringen en visuele upgrades.
 
 ---
 
-Gemaakt voor leerdoeleinden – versie 2.2
+## 🚀 Wat is nieuw in versie 3.0?
+
+- 🌙 **Automatische dark mode** gebaseerd op tijd van de dag
+- 🔄 **Reset-knop** voor zoeken, sorteren, en filters
+- 🧠 **Tooltip-uitleg** bij stat icons (hover voor uitleg)
+- 📊 **Chart.js-visualisatie met procentuele vergelijking** t.o.v. max-waardes
+- 📱 **Responsive layout** (aanpassingen voor kleinere schermen)
+- 🖼️ **Verbeterde lazy loading** en fade-in met `IntersectionObserver`
+- 💾 Gebruik van `localStorage` voor dark mode + favorieten + cache
+- 🔧 Code opgeschoond en componenten gestructureerd (o.a. `setupResetButton()` toegevoegd)
+
+---
+
+## 📁 Bestanden
+
+- `index.html` – HTML structuur en Chart.js integratie
+- `style.css` – Styling, animatie, tooltips, responsive
+- `app.js` – App-startpunt
+- `utils.js` – Functionaliteit voor filteren, popup, charts, events
+- `settings.json` – Live Server poort (5501)
+
+---
+
+## 🧩 Functionaliteiten
+
+- 🔍 Zoek op naam
+- ↕️ Sorteer op stats (HP, armor, attack speed, enz.)
+- 🧙 Filter op champion rol (Fighter, Mage, Support, ...)
+- ⭐ Voeg toe aan favorieten (lokaal opgeslagen)
+- 🌓 Donkere modus (automatisch of toggle)
+- 🖼️ Popup met splash-art + Chart.js stat-grafiek
+- 🧠 Tooltips voor duidelijkheid bij statistieken
+- 🔄 Reset alle filters en zoekopdrachten
+
+---
+
+## 🔗 Externe bronnen
+
+- [Riot Games Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon)
+- [Chart.js](https://www.chartjs.org/)
+
+---
+
+## ▶️ Starten
+
+1. Clone deze repo
+2. Open in VS Code en start Live Server
+3. Navigeer naar `http://localhost:5501`
+4. Filter, vergelijk en ontdek champions!
+
+---
+
+🎓 Gemaakt als leerproject – versie 3.0
