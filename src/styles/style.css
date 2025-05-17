@@ -63,22 +63,21 @@ button, select {
     background: #fff;
     color: #000;
     padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
+    border-radius: 16px;
     width: 90%;
+    max-width: 400px;
     z-index: 1000;
+    box-sizing: border-box;
 }
+
+
 .hidden { display: none; }
 
-@media (max-width: 600px) {
-    nav, header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+
     .champion-card {
         font-size: 0.85em;
     }
-}
+
 
 .tooltip {
   position: relative;
@@ -104,3 +103,58 @@ button, select {
   visibility: visible;
   opacity: 1;
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header, nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    nav input,
+    nav select,
+    nav button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #champions-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .champion-card {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+
+    #popup-content canvas {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin-top: 10px;
+    }
+    
+  
+    
+
+    #popup-content canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+.dark-mode #champion-popup {
+    background: #2c2c2c;
+    color: #f0f0f0;
+}
+
+#champion-popup {
+    border-radius: 16px;
+}
+
+
