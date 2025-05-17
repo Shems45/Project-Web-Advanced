@@ -61,11 +61,9 @@ project-root/
 2. Clone dit project
 3. Open een terminal in de projectmap en voer uit:
 
-```bash
+``` bash ```
 npm install
-npm run dev
-
-```
+npm run dev 
 
 4. Bezoek `http://localhost:5501` of de poort die je hebt ingesteld in `vite.config.js`
 
