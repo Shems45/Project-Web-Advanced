@@ -61,7 +61,7 @@ project-root/
 2. Clone dit project
 3. Open een terminal in de projectmap en voer uit:
 
-```
+```bash
 npm install
 npm run dev
 
