@@ -112,22 +112,33 @@ function renderChampions(champions) {
 
     container.querySelectorAll('.champion-card').forEach(card => {
         observer.observe(card);
-        card.addEventListener('click', () => {
-            const id = card.dataset.id;
-            if (favorites.includes(id)) {
-                favorites = favorites.filter(f => f !== id);
-                card.classList.remove('favorite');
-            } else {
-                favorites.push(id);
-                card.classList.add('favorite');
-            }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-        });
+        let clickTimeout;
 
+        card.addEventListener('click', () => {
+            if (clickTimeout) return; // voorkom dubbele klik-handling
+        
+            clickTimeout = setTimeout(() => {
+                const id = card.dataset.id;
+                if (favorites.includes(id)) {
+                    favorites = favorites.filter(f => f !== id);
+                    card.classList.remove('favorite');
+                } else {
+                    favorites.push(id);
+                    card.classList.add('favorite');
+                }
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                clickTimeout = null;
+            }, 250); // wacht 250ms om te zien of het een dubbelklik is
+        });
+        
         card.addEventListener('dblclick', () => {
-    const champ = allChampions.find(c => c.id === card.dataset.id);
-    showPopup(champ);
-});
+            clearTimeout(clickTimeout);
+            clickTimeout = null;
+        
+            const champ = allChampions.find(c => c.id === card.dataset.id);
+            showPopup(champ);
+        });
+        
 
 // Mobile long press support
 let pressTimer;
