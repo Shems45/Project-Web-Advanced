@@ -85,8 +85,8 @@ Het bestand `app.js` fungeert als de **entreepunt van de applicatie**. Het impor
 
 ### 📱 Smartphone
 
-![Screenshot mobiel](./Screenshots/Screenshot%201%20-%20Smartphone.png)
-![Screenshot mobiel](./Screenshots/Screenshot%202%20-%20Smartphone.png)
+![Screenshot mobiel](./Screenshots/Screenshot%201%20-%20Smartphone.jpg)
+![Screenshot mobiel](./Screenshots/Screenshot%202%20-%20Smartphone.jpg)
 
 ---
 
