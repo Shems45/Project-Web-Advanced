@@ -80,13 +80,13 @@ Het bestand `app.js` fungeert als de **entreepunt van de applicatie**. Het impor
 
 ### 💻 Desktop
 
-![Screenshot desktop](./Screenshots/Screenshot%201.png)
-![Screenshot desktop](./Screenshots/Screenshot%202.png)
+<img src="./Screenshots/Screenshot 1.png" alt="Desktop Screenshot" width="500"/><img src="./Screenshots/Screenshot 2.png" alt="Desktop Screenshot" width="500"/>
 
 ### 📱 Smartphone
 
-![Screenshot mobiel](./Screenshots/Screenshot%201%20-%20Smartphone.jpg)
-![Screenshot mobiel](./Screenshots/Screenshot%202%20-%20Smartphone.jpg)
+
+<img src="./Screenshots/Screenshot 1 - Smartphone.jpg" alt="Mobiel Screenshot" width="300"/> <img src="./Screenshots/Screenshot 2 - Smartphone.jpg" alt="Mobiel Screenshot" width="300"/>
+
 
 ---
 
