@@ -1,4 +1,4 @@
-# LoL Champions Stats App (v3.3 – Vite Edition)
+# LoL Champions Stats App (v3.4 – Vite Edition)
 
 Een interactieve webapplicatie voor het doorzoeken, filteren en vergelijken van League of Legends champions. Deze versie is volledig gebouwd met **Vite**, bevat mobiele optimalisaties, visuele grafieken, en caching voor offline gebruik.
 
@@ -45,7 +45,7 @@ Hieronder worden de belangrijkste functies en technische vereisten gekoppeld aan
 | **Zoekfunctie**                    | `setupSearch()`                   | regel 43 – 46         |
 | **Sorteren op statistieken**       | `setupSort()`                     | regel 47 – 50         |
 | **Filter op rol**                  | `setupRoleFilter()`               | regel 55 – 58         |
-| **Favorieten toggle**             | `setupFavoritesToggle()`         | regel 51 – 54         |
+| **Favorieten toggle**              | `setupFavoritesToggle()`          | regel 51 – 54         |
 | **Favorieten opslaan/laden**       | `favorites`, `renderChampions()`  | regel 1 – 4, 83 – 143 |
 | **Popup sluiten**                  | `setupPopup()`                    | regel 59 – 62         |
 | **Popup tonen**                    | `showPopup()`                     | regel 145 – 202       |
@@ -111,25 +111,25 @@ npm run dev
 LoL_Champions_App/
 ├── index.html
 ├── package.json
-├── vite.config.js
-├── src/
-│   ├── scripts/
-│   │   ├── app.js
-│   │   └── utils.js
-│   └── styles/
-│       └── style.css
-└── Screenshots/
+├── vite.config.js       
+├── Screenshots/         
+└── src/
+    ├── scripts/
+    │   ├── app.js
+    │   └── utils.js
+    └── styles/
+        └── style.css
 ```
 
 ---
 
 ## 📚 Gebruikte bronnen
 
-- Riot API documentatie
+- [Riot API documentatie](https://developer.riotgames.com/docs/lol#data-dragon)
 - [Chart.js docs](https://www.chartjs.org/docs/latest/)
 - [Vite documentatie](https://vitejs.dev/guide/)
 - OpenAI ChatGPT-4 – [gesprekslog](https://chatgpt.com/share/682d0e44-cdf0-800c-b86e-478cdd87ec9b)  
 
 ---
 
-🎓 Gemaakt als leerproject – Versie 3.3 (Vite)
+🎓 Gemaakt als leerproject – Versie 3.4 (Vite)
