@@ -101,7 +101,7 @@ npm install
 npm run dev
 ```
 
-4. Open `http://localhost:5501` in je browser
+4. Open `http://localhost:5173` in je browser
 
 ---
 
